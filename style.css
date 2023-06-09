@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Oswald:wght@300&family=Wix+Madefor+Display&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --bc-blue: rgb(0, 8, 20);
+    --blue: rgb(0, 53, 102);
+    --yellow: rgb(255, 195, 0);
+    --yellow-light: rgb(247, 213, 44);
+
+}
+body{
+    background-color: var(--bc-blue);
+    color: aliceblue;
+    width: 100%;
+    font-family: 'Wix Madefor Display', sans-serif;
+}
+.header{
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.header img{
+    width: 80px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    justify-content:center;
+    gap: 50px;
+    letter-spacing: .2em;
+}
+#form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 30%;
+}
+#input-number, #button{
+    padding: 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+#input-number{
+    background-color: var(--blue); 
+    padding-left: 10px;
+    color: aliceblue;
+}
+#input-number:hover, #input-number:focus{
+    box-shadow: 0 0 10px 1px var(--blue);
+    transition: all 0.3s;
+    
+}
+span{
+    display: block;
+}
+#button{
+    background-color: var(--yellow);
+    font-size: 1.2em;
+    align-items: center;
+    cursor: pointer;
+    
+}
+#button:hover{
+    color: var(--bc-blue);
+    background-color: var(--yellow-light);
+    border: 1px solid white;
+    font-size: 1.3em;
+    font-weight: 600;
+    box-shadow: 0 0 10px 3px var(--blue);
+    transition: all 0.3s;
+}
+#card{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#card-container{
+    width: 25%;
+    height: 55vh;
+    background-color: rgba(0, 53, 102, 0.124);
+    border: 1px solid var(--blue);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 20px 1px rgba(128, 128, 128, 0.194);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-around; 
+    letter-spacing: .3em;   
+    text-align: center;
+}
+#card-container img{
+    width:60%;
+    border-radius: 10px;
+}
+@media (max-width: 800px) {
+    #form{
+        width: 50%;
+    }
+    #card-container{
+        width: 40%;
+    }
+}
+@media (max-width: 640px) {
+    #form{
+        width: 60%;
+    }
+    #card-container{
+        width: 60%;
+    }
+    #card-container img{
+        width: 80%;
+    }
+}
