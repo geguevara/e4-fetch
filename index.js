@@ -13,10 +13,15 @@ const pokemonDestructuring = (pokemon) => ({
 		image: pokemon.sprites.other.home.front_default,
 		height: pokemon.height / 10,
 		weight: pokemon.weight / 10,
-		/* types: pokemon.types, */
+		types: pokemon.types,
 		experience: pokemon.base_experience,
 });
 
+const createTypes = (types)=>{
+    return types .map((tipo) => {
+        return `<span class="type-pokemon ${tipo.type.name}"> ${tipo.type.name} </span>`
+    }).join('');
+}
 
 
 const createCard =(pokemon) =>{
@@ -24,9 +29,13 @@ const createCard =(pokemon) =>{
 
     return `
     <div id="card-container">
+            <span class="span-id">${id}</span>
             <img src="${image}" alt="${name}" >
             <h2>${name}</h2>
-            <p>${id}</p>
+            <p>Altura: ${height}m.</p>
+            <p>Peso:${weight}kg.</p>
+            <span class="span-exp">EXP: ${experience}</span>
+            <div class="tipo-pokemones">${createTypes(types)}</div>
     </div>`;
 };
 const renderPokemon = (pokemon)=>{
@@ -40,7 +49,7 @@ const renderPokemon = (pokemon)=>{
 }
 
 const isEmpty =() =>{
-    errSpan.textContent=`Ingrese un numero`;
+    errSpan.textContent=`Ingrese un número`;
     return;
 }
 
@@ -54,9 +63,7 @@ const searchPokemon = async (e) =>{
     }
     //si hay
     const fetchedPokemon = await traerlos(searchedId);
-    console.log(pokemonTemplate(fetchedPokemon)); //hasta aca estamos bien
-    renderPokemon(fetchedPokemon);//aca ya no
-
+    renderPokemon(fetchedPokemon);
     form.reset() 
 }
 
